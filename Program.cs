@@ -1,5 +1,6 @@
 ﻿using System;
 using Design_patterns.AbstractFactroyPattern;
+using Design_patterns.BuilderPattern;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 
@@ -43,6 +44,13 @@ class Program
             Ecosystem ecoAus = new Ecosystem(aust);
             ecoAus.Run();
 
+        #endregion
+    
+        #region use builder pattern
+            MenuDirector director = new MenuDirector();
+            MenuBuilder BurgerBuilder = new BurgerMenuBuilder();
+            director.Construct(BurgerBuilder);
+            Menu burgerMenu = BurgerBuilder.GetResult();
         #endregion
     }
 }
