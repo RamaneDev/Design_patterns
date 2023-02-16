@@ -1,4 +1,5 @@
 ﻿using System;
+using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 
 namespace design_pattern;
@@ -6,7 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*****  using the strategy pattern  *******/
+        #region use strategy pattern
         
             FullName[] namesFromDatabase = {}; // to populate
             string[] namesToMatch = {}; // to populate        
@@ -23,23 +24,13 @@ class Program
             // match will use the Abbreviation implementation of compare
             importer.Match(namesFromDatabase, namesToMatch);
 
-         /***** end of using the strategy pattern  *******/ 
+        #endregion
+
+        #region use singleton pattern  
+           Logger logger = Logger.Instance;
+           logger.Log("some logs");
+        #endregion 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        Console.WriteLine("Hello, World!");
+       
     }
 }
