@@ -1,4 +1,5 @@
 ﻿using System;
+using Design_patterns.AbstractFactroyPattern;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 
@@ -31,6 +32,17 @@ class Program
            logger.Log("some logs");
         #endregion 
         
-       
+        #region use abstractFactory pattern
+
+            ContinentFactory africa = new AfricaFactory();
+            Ecosystem ecoAf = new Ecosystem(africa);
+            ecoAf.Run();
+
+
+            ContinentFactory aust = new AustraliaFactory();
+            Ecosystem ecoAus = new Ecosystem(aust);
+            ecoAus.Run();
+
+        #endregion
     }
 }

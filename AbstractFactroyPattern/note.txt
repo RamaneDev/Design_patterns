@@ -1,0 +1,9 @@
+- provide an interface for creating families of related or dependent 
+  objects without specifying concrete classes
+
+- Objects can be grouped into a hierarchy that encapsulates distinct platforms
+  consisting of a suite of related objects
+
+- calling code works with abstract interfaces and classes 
+  and does not need to know the exact types of the objects created
+  by the factory
