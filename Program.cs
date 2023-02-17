@@ -1,6 +1,7 @@
 ﻿using System;
 using Design_patterns.AbstractFactroyPattern;
 using Design_patterns.BuilderPattern;
+using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
@@ -54,9 +55,7 @@ class Program
             director.Construct(BurgerBuilder);
             Menu burgerMenu = BurgerBuilder.GetResult();
         #endregion
-    
-       */  
-
+      
        #region use prototype pattern
 
             ColorManager colormanager = new ColorManager();
@@ -74,7 +73,23 @@ class Program
             Color color3 = colormanager["flame"].Clone() as Color;
        
        #endregion
+      
+      */
 
-       Console.WriteLine("hello word");
+         // Note: constructors call Factory Method
+            Document[] documents = new Document[2];
+            documents[0] = new Resume();
+            documents[1] = new Report();
+            // Display document pages
+            foreach (Document document in documents)
+            {
+                Console.WriteLine("\n" + document.GetType().Name + "--");
+                foreach (Page page in document.Pages)
+                {
+                    Console.WriteLine(" " + page.GetType().Name);
+                }
+            }
+           
+     
     }
 }
