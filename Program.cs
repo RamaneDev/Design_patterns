@@ -9,6 +9,7 @@ class Program
 {
     static void Main(string[] args)
     {
+      /*
         #region use strategy pattern
         
             FullName[] namesFromDatabase = {}; // to populate
@@ -52,5 +53,9 @@ class Program
             director.Construct(BurgerBuilder);
             Menu burgerMenu = BurgerBuilder.GetResult();
         #endregion
+    
+       */  
+
+       Console.WriteLine("hello word");
     }
 }
