@@ -1,0 +1,2 @@
+it allow us to load a prototype from memory (is match faster) instead 
+of loading it from file (parse file and construct the object form the loaded prototype)
