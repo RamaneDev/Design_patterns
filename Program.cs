@@ -5,13 +5,16 @@ using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
+using Design_patterns.Structural_Patterns.AdapterPattern;
 
 namespace design_pattern;
 class Program
 {
     static void Main(string[] args)
     {
-      /*
+
+       /*
+
         #region use strategy pattern
         
             FullName[] namesFromDatabase = {}; // to populate
@@ -56,7 +59,7 @@ class Program
             Menu burgerMenu = BurgerBuilder.GetResult();
         #endregion
       
-       #region use prototype pattern
+        #region use prototype pattern
 
             ColorManager colormanager = new ColorManager();
             // Initialize with standard colors
@@ -74,9 +77,9 @@ class Program
        
        #endregion
       
-      */
-
-         // Note: constructors call Factory Method
+     
+        #region use factoryMethod pattern
+          // Note: constructors call Factory Method
             Document[] documents = new Document[2];
             documents[0] = new Resume();
             documents[1] = new Report();
@@ -88,8 +91,20 @@ class Program
                 {
                     Console.WriteLine(" " + page.GetType().Name);
                 }
-            }
-           
-     
+            }           
+         #endregion
+       
+       
+        #region use Adapter pattern
+          // Create adapter and place a request
+            Target target = new Adapter();
+            target.Request();
+            
+        #endregion
+         
+     */ 
+    
+    
+    
     }
 }
