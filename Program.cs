@@ -8,6 +8,7 @@ using Design_patterns.Strategy;
 using Design_patterns.Structural_Patterns.AdapterPattern;
 using Design_patterns.Structural_Patterns.CompositePattern;
 using Design_patterns.Structural_Patterns.DecoratorPattern;
+using Design_patterns.Structural_Patterns.Facade;
 using Design_patterns.Structural_Patterns.ProxyPattern;
 
 namespace design_pattern;
@@ -151,7 +152,11 @@ class Program
      
      */      
 
-    
+      #region  use Facade pattern       
+        Facade facade = new Facade();
+        facade.MethodA();
+        facade.MethodB();
+      #endregion
 
        
    
