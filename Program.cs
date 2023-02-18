@@ -6,6 +6,7 @@ using Design_patterns.Creational_Patterns.ProtoType;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 using Design_patterns.Structural_Patterns.AdapterPattern;
+using Design_patterns.Structural_Patterns.CompositePattern;
 
 namespace design_pattern;
 class Program
@@ -103,6 +104,26 @@ class Program
         #endregion
          
      */ 
+
+       #region use composite pattern
+
+            Composite root = new Composite("root");
+            root.Add(new Leaf("Leaf A"));
+            root.Add(new Leaf("Leaf B"));
+            Composite comp = new Composite("Composite X");
+            comp.Add(new Leaf("Leaf XA"));
+            comp.Add(new Leaf("Leaf XB"));
+            root.Add(comp);
+            root.Add(new Leaf("Leaf C"));
+            // Add and remove a leaf
+            Leaf leaf = new Leaf("Leaf D");
+            root.Add(leaf);
+            root.Remove(leaf);
+            // Recursively display tree
+            root.Display(1);
+
+        
+       #endregion
     
     
     
