@@ -8,6 +8,7 @@ using Design_patterns.Strategy;
 using Design_patterns.Structural_Patterns.AdapterPattern;
 using Design_patterns.Structural_Patterns.CompositePattern;
 using Design_patterns.Structural_Patterns.DecoratorPattern;
+using Design_patterns.Structural_Patterns.ProxyPattern;
 
 namespace design_pattern;
 class Program
@@ -126,7 +127,7 @@ class Program
         
        #endregion
     
-     */ 
+    
 
      #region use decorator pattern
 
@@ -140,6 +141,20 @@ class Program
             d2.Operation();
         
      #endregion
+
+
+      #region 
+       
+            Proxy proxy = new Proxy();
+            proxy.Request();
+      #endregion
+     
+     */      
+
+    
+
+       
+   
     
     }
 }
