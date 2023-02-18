@@ -7,6 +7,7 @@ using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 using Design_patterns.Structural_Patterns.AdapterPattern;
 using Design_patterns.Structural_Patterns.CompositePattern;
+using Design_patterns.Structural_Patterns.DecoratorPattern;
 
 namespace design_pattern;
 class Program
@@ -103,7 +104,7 @@ class Program
             
         #endregion
          
-     */ 
+    
 
        #region use composite pattern
 
@@ -125,7 +126,20 @@ class Program
         
        #endregion
     
-    
+     */ 
+
+     #region use decorator pattern
+
+       // Create ConcreteComponent and two Decorators
+            ConcreteComponent c = new ConcreteComponent();
+            ConcreteDecoratorA d1 = new ConcreteDecoratorA();
+            ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+            // Link decorators
+            d1.SetComponent(c);
+            d2.SetComponent(d1);
+            d2.Operation();
+        
+     #endregion
     
     }
 }
