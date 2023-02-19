@@ -6,6 +6,7 @@ using Design_patterns.Creational_Patterns.ProtoType;
 using Design_patterns.Singleton;
 using Design_patterns.Strategy;
 using Design_patterns.Structural_Patterns.AdapterPattern;
+using Design_patterns.Structural_Patterns.Bridge;
 using Design_patterns.Structural_Patterns.CompositePattern;
 using Design_patterns.Structural_Patterns.DecoratorPattern;
 using Design_patterns.Structural_Patterns.Facade;
@@ -150,7 +151,7 @@ class Program
             proxy.Request();
       #endregion
      
-     */      
+        
 
       #region  use Facade pattern       
         Facade facade = new Facade();
@@ -158,7 +159,28 @@ class Program
         facade.MethodB();
       #endregion
 
-       
+       */   
+
+
+#region use bridge pattern
+         ShapeAbstraction Circle = new ConcreteShape("Circle");
+         Circle.PenAbstraction = new ConcretePen("bleu");
+         Circle.Draw();
+  
+         // change the pen color to black
+  
+         Circle.PenAbstraction = new ConcretePen();
+         Circle.Draw();
+  
+  
+         // change the pen color to red
+  
+         Circle.PenAbstraction = new ConcretePen("red");
+         Circle.Draw();
+  
+#endregion
+        
+
    
     
     }

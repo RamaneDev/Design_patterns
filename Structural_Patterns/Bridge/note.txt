@@ -1,0 +1,4 @@
+The Bridge design pattern decouples an abstraction from its implementation so that the two can vary independently.
+
+
+the exemple is : defining an abstraction of Shape to Draw with an abstraction of pen with their colors
