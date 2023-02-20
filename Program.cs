@@ -1,6 +1,7 @@
 ﻿using System;
 using Design_patterns.AbstractFactroyPattern;
 using Design_patterns.Behavioral_Patterns.ChainOfResponsibility;
+using Design_patterns.Behavioral_Patterns.Command;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -198,7 +199,7 @@ class Program
             client.DisplayCharacters();
 #endregion
 
-  */      
+     
         #region use chainOfResponsibility pattern
               Handler h1 = new ConcreteHandler1();
               Handler h2 = new ConcreteHandler2();
@@ -212,5 +213,17 @@ class Program
                   h1.HandleRequest(request);
               }   
         #endregion
+  */ 
+
+
+#region use command pattern
+              Receiver receiver = new Receiver();
+              Command command = new ConcreteCommand(receiver);
+              Invoker invoker = new Invoker();
+              // Set and execute command
+              invoker.SetCommand(command);
+              invoker.ExecuteCommand();
+#endregion
+
     }
 }
