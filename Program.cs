@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Design_patterns.AbstractFactroyPattern;
 using Design_patterns.Behavioral_Patterns.ChainOfResponsibility;
 using Design_patterns.Behavioral_Patterns.Command;
+using Design_patterns.Behavioral_Patterns.Interpreter;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -213,7 +215,7 @@ class Program
                   h1.HandleRequest(request);
               }   
         #endregion
-  */ 
+  
 
 
 #region use command pattern
@@ -224,6 +226,23 @@ class Program
               invoker.SetCommand(command);
               invoker.ExecuteCommand();
 #endregion
+
+*/ 
+            string roman = "MCMXXVIII";
+            Context context = new Context(roman);
+            // Build the 'parse tree'
+            List<Expression> tree = new List<Expression>();
+            tree.Add(new ThousandExpression());
+            tree.Add(new HundredExpression());
+            tree.Add(new TenExpression());
+            tree.Add(new OneExpression());
+            // Interpret
+            foreach (Expression exp in tree)
+            {
+                exp.Interpret(context);
+            }
+            Console.WriteLine("{0} = {1}",
+                roman, context.Output);
 
     }
 }
