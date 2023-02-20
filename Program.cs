@@ -10,6 +10,7 @@ using Design_patterns.Structural_Patterns.Bridge;
 using Design_patterns.Structural_Patterns.CompositePattern;
 using Design_patterns.Structural_Patterns.DecoratorPattern;
 using Design_patterns.Structural_Patterns.Facade;
+using Design_patterns.Structural_Patterns.Flyweight;
 using Design_patterns.Structural_Patterns.ProxyPattern;
 
 namespace design_pattern;
@@ -159,10 +160,10 @@ class Program
         facade.MethodB();
       #endregion
 
-       */   
+      
 
 
-#region use bridge pattern
+      #region use bridge pattern
          ShapeAbstraction Circle = new ConcreteShape("Circle");
          Circle.PenAbstraction = new ConcretePen("bleu");
          Circle.Draw();
@@ -179,8 +180,22 @@ class Program
          Circle.Draw();
   
 #endregion
-        
+      */      
 
+     
+#region use Flyweight pattern
+            CharacterFactory factory = new CharacterFactory();
+            Client client = new Client(factory);
+            factory.DesplayFactoryObjectCount();
+            client.AddCharacter('A');
+            client.AddCharacter('B');
+            factory.DesplayFactoryObjectCount();   // at this level count is 2
+            client.AddCharacter('A');
+            factory.DesplayFactoryObjectCount();   // at this level also a count shoud be 2
+                                                   // because we have already 'A' object in the Factory
+  
+            client.DisplayCharacters();
+#endregion
    
     
     }

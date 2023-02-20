@@ -1,0 +1,8 @@
+This structural code demonstrates the Flyweight pattern in which a relatively small 
+number of objects is shared many times by different clients.
+
+exemple :
+In this example, when the client adds the symbol 'A' twice,
+only one flyweight object is created by the CharacterFactory.
+This demonstrates how the Flyweight pattern can be used to optimize memory usage by reusing 
+common objects.
