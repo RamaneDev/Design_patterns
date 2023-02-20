@@ -4,6 +4,7 @@ using Design_patterns.AbstractFactroyPattern;
 using Design_patterns.Behavioral_Patterns.ChainOfResponsibility;
 using Design_patterns.Behavioral_Patterns.Command;
 using Design_patterns.Behavioral_Patterns.Interpreter;
+using Design_patterns.Behavioral_Patterns.Iterator;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -227,22 +228,47 @@ class Program
               invoker.ExecuteCommand();
 #endregion
 
-*/ 
-            string roman = "MCMXXVIII";
-            Context context = new Context(roman);
-            // Build the 'parse tree'
-            List<Expression> tree = new List<Expression>();
-            tree.Add(new ThousandExpression());
-            tree.Add(new HundredExpression());
-            tree.Add(new TenExpression());
-            tree.Add(new OneExpression());
-            // Interpret
-            foreach (Expression exp in tree)
-            {
-                exp.Interpret(context);
-            }
-            Console.WriteLine("{0} = {1}",
-                roman, context.Output);
 
-    }
+#region use interpreter pattern
+              string roman = "MCMXXVIII";
+              Context context = new Context(roman);
+              // Build the 'parse tree'
+              List<Expression> tree = new List<Expression>();
+              tree.Add(new ThousandExpression());
+              tree.Add(new HundredExpression());
+              tree.Add(new TenExpression());
+              tree.Add(new OneExpression());
+              // Interpret
+              foreach (Expression exp in tree)
+              {
+                  exp.Interpret(context);
+              }
+              Console.WriteLine("{0} = {1}",
+                  roman, context.Output);
+
+                  #endregion
+  
+      */ 
+
+
+          #region use iterator pattern
+              ConcreteAggregate a = new ConcreteAggregate();
+              a[0] = "Item A";
+              a[1] = "Item B";
+              a[2] = "Item C";
+              a[3] = "Item D";
+              // Create Iterator and provide aggregate
+              AbstractIterator i = a.CreateIterator();
+              Console.WriteLine("Iterating over collection:");
+              object item = i.First();
+              while (item != null)
+              {
+                  Console.WriteLine(item);
+                  item = i.Next();
+              }
+          #endregion
+      
+      
+      }
+
 }
