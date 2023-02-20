@@ -5,6 +5,7 @@ using Design_patterns.Behavioral_Patterns.ChainOfResponsibility;
 using Design_patterns.Behavioral_Patterns.Command;
 using Design_patterns.Behavioral_Patterns.Interpreter;
 using Design_patterns.Behavioral_Patterns.Iterator;
+using Design_patterns.Behavioral_Patterns.Mediator;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -248,7 +249,7 @@ class Program
 
                   #endregion
   
-      */ 
+     
 
 
           #region use iterator pattern
@@ -267,6 +268,21 @@ class Program
                   item = i.Next();
               }
           #endregion
+   */    
+      
+           #region use mediator pattern
+             ConcreteMediator m = new ConcreteMediator();
+             ConcreteColleague1 c1 = new ConcreteColleague1(m);
+             ConcreteColleague2 c2 = new ConcreteColleague2(m);
+             m.Colleague1 = c1;
+             m.Colleague2 = c2;
+             c1.Send("How are you?");
+             c2.Send("Fine, thanks");
+           #endregion
+
+      
+      
+      
       
       
       }
