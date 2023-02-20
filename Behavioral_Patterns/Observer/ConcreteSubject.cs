@@ -15,7 +15,9 @@ namespace Design_patterns.Behavioral_Patterns.Observer
         public string SubjectState
         {
             get { return subjectState; }
-            set { subjectState = value; }
+            set { subjectState = value; 
+                  Notify();
+            }
         }
     }
 }

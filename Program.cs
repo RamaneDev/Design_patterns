@@ -286,8 +286,8 @@ class Program
             s.Attach(new ConcreteObserver(s, "Y"));
             s.Attach(new ConcreteObserver(s, "Z"));
             // Change subject and notify observers
-            s.SubjectState = "ABC";
-            s.Notify();
+            s.SubjectState = "ABC";  // this set will call Notify Automatically (see Subject Abstract class)
+            //s.Notify();
       
       
       
