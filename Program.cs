@@ -6,6 +6,7 @@ using Design_patterns.Behavioral_Patterns.Command;
 using Design_patterns.Behavioral_Patterns.Interpreter;
 using Design_patterns.Behavioral_Patterns.Iterator;
 using Design_patterns.Behavioral_Patterns.Mediator;
+using Design_patterns.Behavioral_Patterns.Observer;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -268,7 +269,7 @@ class Program
                   item = i.Next();
               }
           #endregion
-   */    
+    
       
            #region use mediator pattern
              ConcreteMediator m = new ConcreteMediator();
@@ -279,8 +280,14 @@ class Program
              c1.Send("How are you?");
              c2.Send("Fine, thanks");
            #endregion
-
-      
+  */ 
+            ConcreteSubject s = new ConcreteSubject();
+            s.Attach(new ConcreteObserver(s, "X"));
+            s.Attach(new ConcreteObserver(s, "Y"));
+            s.Attach(new ConcreteObserver(s, "Z"));
+            // Change subject and notify observers
+            s.SubjectState = "ABC";
+            s.Notify();
       
       
       
