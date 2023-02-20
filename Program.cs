@@ -1,5 +1,6 @@
 ﻿using System;
 using Design_patterns.AbstractFactroyPattern;
+using Design_patterns.Behavioral_Patterns.ChainOfResponsibility;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -180,10 +181,10 @@ class Program
          Circle.Draw();
   
 #endregion
-      */      
+    
 
      
-#region use Flyweight pattern
+           #region use Flyweight pattern
             CharacterFactory factory = new CharacterFactory();
             Client client = new Client(factory);
             factory.DesplayFactoryObjectCount();
@@ -196,7 +197,20 @@ class Program
   
             client.DisplayCharacters();
 #endregion
-   
-    
+
+  */      
+        #region use chainOfResponsibility pattern
+              Handler h1 = new ConcreteHandler1();
+              Handler h2 = new ConcreteHandler2();
+              Handler h3 = new ConcreteHandler3();
+              h1.SetSuccessor(h2);
+              h2.SetSuccessor(h3);
+              // Generate and process request
+              int[] requests = { 2, 5, 14, 22, 18, 3, 27, 20 };
+              foreach (int request in requests)
+              {
+                  h1.HandleRequest(request);
+              }   
+        #endregion
     }
 }
