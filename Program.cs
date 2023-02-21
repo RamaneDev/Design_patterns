@@ -8,6 +8,7 @@ using Design_patterns.Behavioral_Patterns.Iterator;
 using Design_patterns.Behavioral_Patterns.Mediator;
 using Design_patterns.Behavioral_Patterns.Observer;
 using Design_patterns.Behavioral_Patterns.State;
+using Design_patterns.Behavioral_Patterns.TemplateMethod;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -292,7 +293,7 @@ class Program
               //s.Notify();
         
             #endregion
-     */   
+     
 
 
 
@@ -305,8 +306,17 @@ class Program
               context.Request();
               context.Request();
         #endregion
-      
-      
+       
+        
+        */  
+
+
+#region use TemplateMethod pattern
+              AbstractTemplateMethod aA = new ConcreteTemplateMethodA();
+              aA.TemplateMethod();
+              AbstractTemplateMethod aB = new ConcreteTemplateMethodB();
+              aB.TemplateMethod();
+#endregion
       }
 
 }
