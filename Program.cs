@@ -6,6 +6,7 @@ using Design_patterns.Behavioral_Patterns.Command;
 using Design_patterns.Behavioral_Patterns.Interpreter;
 using Design_patterns.Behavioral_Patterns.Iterator;
 using Design_patterns.Behavioral_Patterns.Mediator;
+using Design_patterns.Behavioral_Patterns.Memento;
 using Design_patterns.Behavioral_Patterns.Observer;
 using Design_patterns.Behavioral_Patterns.State;
 using Design_patterns.Behavioral_Patterns.TemplateMethod;
@@ -319,7 +320,7 @@ class Program
               aB.TemplateMethod();
 #endregion
      
-           */  
+           
 
 
            
@@ -335,7 +336,20 @@ class Program
               o.Accept(v1);
               o.Accept(v2);
 #endregion
+  */
 
+
+#region use Memento pattern
+              Originator o = new Originator();
+              o.State = "On";
+              // Store internal state
+              Caretaker c = new Caretaker();
+              c.Memento = o.CreateMemento();
+              // Continue changing originator
+              o.State = "Off";
+              // Restore saved state
+              o.SetMemento(c.Memento);
+#endregion
       }
 
 }
