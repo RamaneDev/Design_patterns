@@ -7,6 +7,7 @@ using Design_patterns.Behavioral_Patterns.Interpreter;
 using Design_patterns.Behavioral_Patterns.Iterator;
 using Design_patterns.Behavioral_Patterns.Mediator;
 using Design_patterns.Behavioral_Patterns.Observer;
+using Design_patterns.Behavioral_Patterns.State;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -280,16 +281,30 @@ class Program
              c1.Send("How are you?");
              c2.Send("Fine, thanks");
            #endregion
-  */ 
-            ConcreteSubject s = new ConcreteSubject();
-            s.Attach(new ConcreteObserver(s, "X"));
-            s.Attach(new ConcreteObserver(s, "Y"));
-            s.Attach(new ConcreteObserver(s, "Z"));
-            // Change subject and notify observers
-            s.SubjectState = "ABC";  // this set will call Notify Automatically (see Subject Abstract class)
-            //s.Notify();
-      
-      
+ 
+            #region use Observer pattern
+              ConcreteSubject s = new ConcreteSubject();
+              s.Attach(new ConcreteObserver(s, "X"));
+              s.Attach(new ConcreteObserver(s, "Y"));
+              s.Attach(new ConcreteObserver(s, "Z"));
+              // Change subject and notify observers
+              s.SubjectState = "ABC";  // this set will call Notify Automatically (see Subject Abstract class)
+              //s.Notify();
+        
+            #endregion
+     */   
+
+
+
+        #region use state pattern
+                     // Setup context in a state
+              var context = new Design_patterns.Behavioral_Patterns.State.Context(new ConcreteStateA());
+              // Issue requests, which toggles state
+              context.Request();
+              context.Request();
+              context.Request();
+              context.Request();
+        #endregion
       
       
       }
