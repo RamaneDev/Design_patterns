@@ -9,6 +9,7 @@ using Design_patterns.Behavioral_Patterns.Mediator;
 using Design_patterns.Behavioral_Patterns.Observer;
 using Design_patterns.Behavioral_Patterns.State;
 using Design_patterns.Behavioral_Patterns.TemplateMethod;
+using Design_patterns.Behavioral_Patterns.Visitor;
 using Design_patterns.BuilderPattern;
 using Design_patterns.Creational_Patterns.FactoryMethodPattern;
 using Design_patterns.Creational_Patterns.ProtoType;
@@ -308,7 +309,7 @@ class Program
         #endregion
        
         
-        */  
+  
 
 
 #region use TemplateMethod pattern
@@ -317,6 +318,24 @@ class Program
               AbstractTemplateMethod aB = new ConcreteTemplateMethodB();
               aB.TemplateMethod();
 #endregion
+     
+           */  
+
+
+           
+#region use visitor pattern
+              // Setup structure
+              ObjectStructure o = new ObjectStructure();
+              o.Attach(new ConcreteElementA());
+              o.Attach(new ConcreteElementB());
+              // Create visitor objects
+              ConcreteVisitor1 v1 = new ConcreteVisitor1();
+              ConcreteVisitor2 v2 = new ConcreteVisitor2();
+              // Structure accepting visitors
+              o.Accept(v1);
+              o.Accept(v2);
+#endregion
+
       }
 
 }
